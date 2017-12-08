@@ -39,10 +39,24 @@ Initialize the bank, and call `exchange_to` as you normally would.
 
 ```ruby
 require 'money/bank/cryptocompare'
-
 bank = Money::Bank::Cryptocompare.new
-Money.default_bank = bank
+bank.exchange_with(Money.new(100_000_000,'BTC'), 'IOT')
 
-b = Money.new(100_000_000,'BTC')
-b.exchange_to('IOT')
+# Set default bank to allow auto currency conversion
+Money.default_bank = bank
+Money.new(100_000_000,'BTC').exchange_to('IOT')
+```
+
+Cryptocompare offers some options, such as using specific exchange for rate lookup. This can be set when initializing the bank:
+
+```ruby
+Money::Bank::Cryptocompare.new(options: {'e' => 'Kraken'})
+```
+
+A list of supported exchanges are listed [here](https://github.com/alexanderdavidpan/cryptocompare#supported-exchanges).
+
+If we want to set a rates store, pass it with the `:rates_store` key (different to standard bank method signature):
+
+```ruby
+Money::Bank::Cryptocompare.new(rates_store: rates_store)
 ```
