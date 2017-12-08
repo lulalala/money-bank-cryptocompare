@@ -4,21 +4,13 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 Gem::Specification.new do |spec|
   spec.name          = "money-bank-cryptocompare"
   spec.version       = "0.1.0"
+  spec.license       = 'MIT'
   spec.authors       = ["lulalala"]
   spec.email         = ["mark@goodlife.tw"]
 
   spec.summary       = %q{Money Bank for fetch cryptocurrency exchange rates from Cryptocompare}
-  spec.description   = spec.description
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
-
-  # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
-  # to allow pushing to a single host or delete this section to allow pushing to any host.
-  if spec.respond_to?(:metadata)
-    spec.metadata["allowed_push_host"] = "TODO: Set to 'http://mygemserver.com'"
-  else
-    raise "RubyGems 2.0 or newer is required to protect against " \
-      "public gem pushes."
-  end
+  spec.description   = %q{Money gem's Bank implementation to Cryptocompare API to do cryptocurrency exchange, like converting Bitcoin to Ethereum.}
+  spec.homepage      = "https://github.com/lulalala/money-bank-cryptocompare"
 
   spec.files         = `git ls-files -z`.split("\x0").reject do |f|
     f.match(%r{^(test|spec|features)/})
